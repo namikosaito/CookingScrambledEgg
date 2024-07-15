@@ -23,9 +23,8 @@ Use the virtual environment (venv), "cooking_env"
 * matplotlib 3.7.5
 * pytorch 2.3.1 (check and follow installattion here: [pytorch link](https://pytorch.org/get-started/locally/))
 
-## How to run
-### 1. CAE
-#### 0. Introduction
+## How to run CAE
+### 0. Introduction
   The aim of CAE is to learn image and extract image features.
   The sample images(.png) are put in dataset folder.
   * ae/do_cae.py : main program to run
@@ -33,7 +32,7 @@ Use the virtual environment (venv), "cooking_env"
   * ae/src/cae_learn.py : code for training, save trained model in result folder
   * ae/src/cae_eval.py : code for test, extract image fieature, and reconstruct the images
 
-#### 1. training CAE model
+### 1. training CAE model
   Set the parameters/directry path in "ae/do_cae.py"
   * Select Learning_Target (: "trimmed" or "whole") according to the size of the image.
   * GPU number
@@ -46,7 +45,7 @@ Use the virtual environment (venv), "cooking_env"
 
   The trained log and models will be saved in the result folder
 
-#### 2. test CAE model
+### 2. test CAE model
   The sample trained models are already put in the result folder
 
   ```$ cs ae```
@@ -55,4 +54,13 @@ Use the virtual environment (venv), "cooking_env"
 
   The image features and reconstructed images will be saved in the result folder
 
-### 2. MTRNN + Attention
+### 3. Sample reconstruct results
+
+## How to run MTRNN + Attention
+### 0. Introduction
+
+### 1. Training RNN model
+
+### 2. Test RNN model
+
+### 3. Sample results
