@@ -66,9 +66,9 @@ if mode == "train":
         log = resume.rstrip(".tar")
     nn_params = {"gpu": 0,
                  "batch": 100, 
-                 "size": 128,
-                 "dsize": 5,
-                 "epoch": 150,
+                 "size": 128,   # image size
+                 "dsize": 5,    # image augumentation shift picxel size
+                 "epoch": 1500,
                  "n_workers": 6,
                  "print_iter": 5,
                  "snap_iter": 50,

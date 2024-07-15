@@ -25,6 +25,32 @@ Use the virtual environment (venv), "cooking_env"
 
 ## How to run
 ### 1. CAE
+0. Introduction
+  The aim of CAE is to learn image and extract image features.
+  The sample images(.png) are put in dataset folder.
+  * ae/do_cae.py : main program to run
+  * ae/model/cae_trimmed.py & cae_whole.py : CAE models
+  * ae/src/cae_learn.py : code for training, save trained model in result folder
+  * ae/src/cae_eval.py : code for test, extract image fieature, and reconstruct the images
 
+1. training CAE model
+  Set the parameters/directry path in "ae/do_cae.py"
+  * Select Learning_Target (: "trimmed" or "whole") according to the size of the image.
+  * GPU number
+  * batch size
+  etc
+
+   $ cd ae
+   $ python do_cae.py train
+
+  The trained log and models will be saved in the result folder
+
+2. test CAE model
+  The sample trained models are already put in the result folder
+
+  $ cs ae
+  $ python do_cae.py test
+
+  The image features and reconstructed images will be saved in the result folder
 
 ### 2. MTRNN + Attention
