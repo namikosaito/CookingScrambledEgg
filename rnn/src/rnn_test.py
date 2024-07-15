@@ -113,25 +113,26 @@ def test(params, rnn):
 
         tmp_i = 0
         for i, (seq1, seq2) in enumerate(zip(_y_seq, _t_seq)):
-            mask = np.where(seq2[:, 0] != ignore_value)[0]
-            name_tmp = (FILE_NAMES[tmp_i])
-            
-            if dataset == 'test':
-                if "test" in name_tmp:
-                    name1 = name_tmp
-                    csv_func(seq1[mask, :7], path=os.path.join(outdir_seq, ('{}_angle_{}.csv').format(dataset, name1)))
-                    func([seq1[mask, :7], seq2[mask, :7]], ['solid', 'dashed'], path=os.path.join(outdir_seq, ('{}_angle_{}.png').format(dataset, name1)))
-                    func([seq1[mask, 7:14], seq2[mask, 7:14]], ['solid', 'dashed'], path=os.path.join(outdir_seq, ('{}_force_{}.png').format(dataset, name1)))
-                    func([seq1[mask, 14:18], seq2[mask, 14:18]], ['solid', 'dashed'], path=os.path.join(outdir_seq, ('{}_tactile_{}.png').format(dataset, name1)))
+            if i%2==0:
+                mask = np.where(seq2[:, 0] != ignore_value)[0]
+                name_tmp = (FILE_NAMES[tmp_i])
+                
+                if dataset == 'test':
+                    if "test" in name_tmp:
+                        name1 = name_tmp
+                        csv_func(seq1[mask, :7], path=os.path.join(outdir_seq, ('{}_angle_{}.csv').format(dataset, name1)))
+                        func([seq1[mask, :7], seq2[mask, :7]], ['solid', 'dashed'], path=os.path.join(outdir_seq, ('{}_angle_{}.png').format(dataset, name1)))
+                        func([seq1[mask, 7:14], seq2[mask, 7:14]], ['solid', 'dashed'], path=os.path.join(outdir_seq, ('{}_force_{}.png').format(dataset, name1)))
+                        func([seq1[mask, 14:18], seq2[mask, 14:18]], ['solid', 'dashed'], path=os.path.join(outdir_seq, ('{}_tactile_{}.png').format(dataset, name1)))
 
-            elif dataset == 'train':
-                if "train" in name_tmp:
-                    name1 = name_tmp
-                    csv_func(seq1[mask, :7], path=os.path.join(outdir_seq, ('{}_angle_{}.csv').format(dataset, name1)))
-                    func([seq1[mask, :7], seq2[mask, :7]], ['solid', 'dashed'], path=os.path.join(outdir_seq, ('{}_angle_{}.png').format(dataset, name1)))
-                    func([seq1[mask, 7:14], seq2[mask, 7:14]], ['solid', 'dashed'], path=os.path.join(outdir_seq, ('{}_force_{}.png').format(dataset, name1)))
-                    func([seq1[mask, 14:18], seq2[mask, 14:18]], ['solid', 'dashed'], path=os.path.join(outdir_seq, ('{}_tactile_{}.png').format(dataset, name1)))
-            tmp_i += 1
+                elif dataset == 'train':
+                    if "train" in name_tmp:
+                        name1 = name_tmp
+                        csv_func(seq1[mask, :7], path=os.path.join(outdir_seq, ('{}_angle_{}.csv').format(dataset, name1)))
+                        func([seq1[mask, :7], seq2[mask, :7]], ['solid', 'dashed'], path=os.path.join(outdir_seq, ('{}_angle_{}.png').format(dataset, name1)))
+                        func([seq1[mask, 7:14], seq2[mask, 7:14]], ['solid', 'dashed'], path=os.path.join(outdir_seq, ('{}_force_{}.png').format(dataset, name1)))
+                        func([seq1[mask, 14:18], seq2[mask, 14:18]], ['solid', 'dashed'], path=os.path.join(outdir_seq, ('{}_tactile_{}.png').format(dataset, name1)))
+                tmp_i += 1
             
     model.eval()
     outdir_analysis = outdir_seq

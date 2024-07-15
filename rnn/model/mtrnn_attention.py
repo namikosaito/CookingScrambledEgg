@@ -5,15 +5,12 @@ import torch.nn as nn
 import numpy as np
 import os, csv
 
-cs_filename = "online_cs.csv"
-cf_filename = "online_cf.csv"
-io_filename = "online_io.csv"
 
 def sigmoid(x):
     return 1.0 / (1.0 + torch.exp(-x))
 
 class RNN(nn.Module):
-    def __init__(self, in_size=1, out_size=1, params=None, csv_record=False, mg=False):
+    def __init__(self, in_size=1, out_size=1, params=None, mg=False):
 
         super(RNN, self).__init__()
         self.in_size = in_size
@@ -21,7 +18,6 @@ class RNN(nn.Module):
         self.c_size = params["c_size"]
         self.tau = params["tau"]
         self.atten = params["split_node"]["mot"] + params["split_node"]["img"]
-        self.csv_record = csv_record
         self.mg = mg
         print()
         print("c_size : {}\ntau : {}\natten : {}\nmg : {}".format(self.c_size, self.tau, self.atten, self.mg))
@@ -62,22 +58,6 @@ class RNN(nn.Module):
             self.attention_map = self.i2atten(x, self.cf_state)
             self.cf_inter = (1.0-1.0/self.tau['cf']) * self.cf_inter + (1.0/self.tau['cf']) \
                             * (self.i2cf(self.attention_map* x) + self.cf2cf(self.cf_state) +self.cs2cf(self.cs_state))
-            
-            if self.csv_record == True:
-                attention_inter_output = torch.softmax(self.attention_map, dim=0).to('cpu').detach().numpy().copy()
-                for i in range(self.attention_map.shape[0]):
-                    self.attention_filename = os.path.join(dir_for_output, "online_attention_"+ str(i) +".csv")
-                    with open(self.attention_filename, 'a') as f_handle:
-                        writer = csv.writer(f_handle, delimiter='\t')
-                        writer.writerow(attention_inter_output[i])
-
-        if self.csv_record == True:
-            cf_inter_output = self.cf_inter.to('cpu').detach().numpy().copy()
-            for i in range(self.cf_inter.shape[0]):
-                self.cf_filename = os.path.join(dir_for_output, "online_cf_iter_"+ str(i) +".csv")
-                with open(self.cf_filename, 'a') as f_handle:
-                    writer = csv.writer(f_handle, delimiter='\t')
-                    writer.writerow(cf_inter_output[i])
 
         self.cf_state = torch.tanh(self.cf_inter) 
 
@@ -91,14 +71,6 @@ class RNN(nn.Module):
             self.cs_inter = (1.0-1.0/self.tau['cs']) * self.cs_inter + (1.0/self.tau['cs']) \
                             * (self.cf2cs(self.cf_state) + self.cs2cs(self.cs_state))
 
-        if self.csv_record == True:
-            cs_inter_output = self.cs_inter.to('cpu').detach().numpy().copy()
-                
-            for i in range(self.cs_inter.shape[0]):
-                self.cs_filename = os.path.join(dir_for_output, "online_cs_iter_"+ str(i) +".csv")
-                with open(self.cs_filename, 'a') as f_handle:
-                    writer = csv.writer(f_handle, delimiter='\t')
-                    writer.writerow(cs_inter_output[i])
 
         self.cs_state = torch.tanh(self.cs_inter)
 
