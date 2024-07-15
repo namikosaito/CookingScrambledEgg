@@ -9,7 +9,7 @@ The open source cord for running the learning model.
 Confirmed with the PCs with spec below
 * Operating System: Linux(Ubuntu) / MacOS Sonoma
 * CPU: Intel(R) Core(TM) i9-9900KF CPU @ 3.60GHz / Intel Core i5 @ 2GHz 
-* GPU: Nvidia GeForce RTX 2080 SUPER with CUDA 11.8 / Intel Iris Plus Graphics 1536MB
+* GPU: Nvidia GeForce RTX 2080 SUPER with CUDA 11.8 / Intel Iris Plus Graphics
 * Disk Space: Approximately XGB of free space required
 Generic computer hardware is sufficient and no non-standard hardware is necessary to run the project.
 
@@ -21,5 +21,10 @@ Use the virtual environment (venv), "cooking_env"
 * numpy 2.0.0
 * opencv-python 4.10.0.84
 * matplotlib 3.7.5
-* pytorch 2.3.1 (check and follow installattion here: [text](https://pytorch.org/get-started/locally/))
+* pytorch 2.3.1 (check and follow installattion here: [pytorch link](https://pytorch.org/get-started/locally/))
 
+## How to run
+### 1. CAE
+
+
+### 2. MTRNN + Attention
