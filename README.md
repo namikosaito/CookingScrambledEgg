@@ -1,6 +1,6 @@
 # CookingScrambledEgg
 ## Cooking Robot Mastery by Learning Online Motion Generation with Active Perception
-[Uploading whole.pdf…]()
+https://github.com/namikosaito/CookingScrambledEgg/blob/main/Cooking_cover_image.pdf
 
 
 The open source cord for running the learning model.
