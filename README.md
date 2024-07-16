@@ -26,7 +26,7 @@ Use the virtual environment (venv), "cooking_env"
 ## How to run CAE
 ### 0. Introduction
   The aim of CAE is to learn image and extract image features.
-  The sample images(.png) are put in dataset folder.
+  The sample training dataset images(.png) are put in dataset folderm, which are used in our research.
   * ae/do_cae.py : main program to run
   * ae/model/cae_trimmed.py & cae_whole.py : CAE models
   * ae/src/cae_learn.py : code for training, save trained model in result folder
@@ -37,6 +37,7 @@ Use the virtual environment (venv), "cooking_env"
   * Select Learning_Target (: "trimmed" or "whole") according to the size of the image.
   * GPU number
   * batch size
+    
   etc
 
    ```$ cd ae```
@@ -46,21 +47,46 @@ Use the virtual environment (venv), "cooking_env"
   The trained log and models will be saved in the result folder
 
 ### 2. test CAE model
-  The sample trained models are already put in the result folder
+  The sample trained models are already put in the result folder, which is used for our evaluation in the paper.
+  * The model for trimmed image: result/1023-0500-trimmed/snap/01500.tar
+  * The model for wholr image: result/1025-2335-whole/snap/01500.tar
+    
+You can use your own model after training, too.
 
-  ```$ cs ae```
+  ```$ cd ae```
   
   ```$ python do_cae.py test```
 
-  The image features and reconstructed images will be saved in the result folder
+  The image features and reconstructed images will be saved in the result folder (result/MMDD-TIME-trimmed(whole)/snap/).
 
 ### 3. Sample reconstruct results
 
 ## How to run MTRNN + Attention
 ### 0. Introduction
+  This model learn sequential sensorimotor data (image feature, motor angle, force and tactile sensor) to predict the next step data.
 
-### 1. Training RNN model
+### 1. Training MTRNN + Attention model
+  Set the parameters/directry path in "rnn/do_rnn.py"
+  * the number of neuron of Cf and Cs nodes (c_size)
+  * the time constant for Cs and Cs nodes (tau)
+  * open rate (input_param)
+    
+  etc
 
-### 2. Test RNN model
+   ```$ cd rnn```
+   
+   ```$ python do_rnn.py train```
 
-### 3. Sample results
+  The trained log and models will be saved in the result folder
+
+### 2. Test MTRNN + Attention model
+  The sample trained models are already put in the result folder, which is used in our evaluation.
+  * result/0715-1750_cf30_cs7_cft5_cst32/snap/20000.tar
+    
+You can use your own model after training, too.
+    
+  ```$ cd rnn```
+  
+  ```$ python do_rnn.py test```
+
+### 3. Sample motion generation (prediction) results
