@@ -30,12 +30,26 @@ FYI
 * matplotlib 3.7.5
 * pytorch 2.3.1 (check and follow installattion here: [pytorch link](https://pytorch.org/get-started/locally/))
 
+## Dataset
+  In this github repository, we put 
+  * "dataset/"
+    * "raw" dataset of image, motor angle, force and tactile.
+    * We only include single data each for training and test due to limited uploading size.
+    * This is used for learning CAE
+  * "pickle data/"
+    * The combined data of motor angle, **image feature**, force and tactile with **all the sequences**
+    * This is used for learning MTRNN+Attention   
+    
+  You can test the codes with the samples above however, if you wish to use the whole "raw" dataset, all the image, motor angle, force and tactile dataset is shared in the drive bellow.
+  The size is 21.7GB.
+  [Google Drive Link](https://drive.google.com/drive/folders/1St4PYt2P6C5BvTwY1DT1azlWxzXvfXZn?usp=sharing) 
+
 ## How to run CAE
 ### 0. Introduction
   The aim of CAE is to learn image and extract image features.
-  The sample training dataset images(.png) are put in dataset folderm, which are used in our research.
+  Some part of the sample training dataset images(.png) are put in dataset folderm, which are used in our research.
   * ae/do_cae.py : main program to run
-  * ae/model/cae_trimmed.py & cae_whole.py : CAE models
+  * ae/model/cae_trimmed.py & cae_whole.py : CAE model architectures
   * ae/src/cae_learn.py : code for training, save trained model in result folder
   * ae/src/cae_eval.py : code for test, extract image fieature, and reconstruct the images
 
@@ -71,6 +85,11 @@ You can use your own model after training, too.
 ## How to run MTRNN + Attention
 ### 0. Introduction
   This model learn sequential sensorimotor data (image feature, motor angle, force and tactile sensor) to predict the next step data.
+  
+  * rnn/do_rnn.py : main program to run
+  * rnn/model/mtrnn_attention.py : MTRNN + Attention model architecture
+  * rnn/src/rnn_learn.py : code for training, save trained model in result folder
+  * rnn/src/rnn_eval.py : code for test, predict the motor, force and tactile data and output with csv and png
 
 ### 1. Training MTRNN + Attention model
   Set the parameters/directry path in "rnn/do_rnn.py"
@@ -97,3 +116,4 @@ You can use your own model after training, too.
   ```$ python do_rnn.py test```
 
 ### 3. Sample motion generation (prediction) results
+  The sample result is put in "result/"
