@@ -15,6 +15,7 @@ Confirmed with the PCs with spec below
   * Nvidia GeForce RTX 2080 SUPER with CUDA 12.4
   * Nvidia GeForce RTX 3060 Mobile / Max-Q with CUDA 12.2
 * Disk Space: Approximately 1.8GB of free space required
+  
 Generic computer hardware is sufficient and no non-standard hardware is necessary to run the project.
 
 ## Intallation
