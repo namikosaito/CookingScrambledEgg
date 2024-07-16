@@ -7,7 +7,7 @@ The open source cord for running the learning model.
 
 ## System Repuirements
 Confirmed with the PCs with spec below
-* Operating System: Linux(Ubuntu) 
+* Operating System: Linux(Ubuntu22.04) 
 * CPU:
   * Intel(R) Core(TM) i9-9900KF CPU @ 3.60GHz
   * AMD Ryzen 7 6800HS with Radeon Graphics
