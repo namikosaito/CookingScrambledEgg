@@ -7,16 +7,16 @@ The open source cord for running the learning model.
 
 ## System Repuirements
 Confirmed with the PCs with spec below
-* Operating System: Linux(Ubuntu) / MacOS Sonoma
-* CPU: Intel(R) Core(TM) i9-9900KF CPU @ 3.60GHz / Intel Core i5 @ 2GHz 
-* GPU: Nvidia GeForce RTX 2080 SUPER with CUDA 11.8 / Intel Iris Plus Graphics
-* Disk Space: Approximately XGB of free space required
+* Operating System: Linux(Ubuntu) 
+* CPU: Intel(R) Core(TM) i9-9900KF CPU @ 3.60GHz / 
+* GPU: Nvidia GeForce RTX 2080 SUPER with CUDA 12.4 / 
+* Disk Space: Approximately 1.7GB of free space required
 Generic computer hardware is sufficient and no non-standard hardware is necessary to run the project.
 
 ## Intallation
 Use the virtual environment (venv), "cooking_env"
 
-``` source cooking_env/bin/activate```
+``` $ source cooking_env/bin/activate```
 
 FYI
 * python 3.8.10
