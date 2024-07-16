@@ -39,7 +39,6 @@ elif Learning_Target == "whole":
 
 ### if you select own trained model
 # RESUME_PATH = "../result/XXXX/snap/XXXXX.tar" 
-# RESUME_PATH = "../result/0716-1841-trimmed/snap/00010.tar"
 
 args = sys.argv
 mode = args[1]

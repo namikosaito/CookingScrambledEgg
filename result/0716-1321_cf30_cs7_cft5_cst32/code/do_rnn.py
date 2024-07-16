@@ -14,7 +14,7 @@ TRAIN_PATH = "rnn_train.pickle"
 TEST_PATH = "rnn_test.pickle"
 RESULT_LOG = "../result/"
 
-TAR_PATH = "../result/0715-1750_cf30_cs7_cft5_cst32/snap/20000.tar"
+TAR_PATH = "../result/0716-1843_cf30_cs7_cft5_cst32/snap/20000.tar"
 
 now = datetime.datetime.now()
 current_time = now.strftime("%m%d-%H%M")
@@ -44,9 +44,9 @@ if mode=="train":
                  "input_param":input_param, 
                  "input_param_test":input_param_test, 
                  "gpu":-1, 
-                 "epoch":10,
-                 "print_iter":10, 
-                 "snap_iter":5, 
+                 "epoch":20000,
+                 "print_iter":100, 
+                 "snap_iter":5000, 
                  "c_size":c_size,
                  "outdir":train_log,
                  "split_node":split_nodes,

@@ -15,6 +15,7 @@ TEST_PATH = "rnn_test.pickle"
 RESULT_LOG = "../result/"
 
 TAR_PATH = "../result/0716-1843_cf30_cs7_cft5_cst32/snap/20000.tar"
+# (You can also use your own trained model)
 
 now = datetime.datetime.now()
 current_time = now.strftime("%m%d-%H%M")
