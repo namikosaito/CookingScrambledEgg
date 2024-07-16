@@ -81,6 +81,14 @@ You can use your own model after training, too.
   The image features and reconstructed images will be saved in the result folder (result/MMDD-TIME-trimmed(whole)/snap/).
 
 ### 3. Sample reconstruct results
+  The sample result is saved in "result/" directory
+  * image features: result/MMDD-TIME-trimmed(or whole)/snap/XXXXX_mid
+  * reconstructed images: result/MMDD-TIME-trimmed(or whole)/snap/XXXXX_rec
+  
+  The bellow gifs are resonstructed whole & trimmed images.
+
+  <img src="https://github.com/namikosaito/CookingScrambledEgg/blob/main/result/1025-2335-whole/snap/01500_rec/train_normal_4_1/whole.gif"  width="300"/>    <img src="https://github.com/namikosaito/CookingScrambledEgg/blob/main/result/1023-0500-trimmed/snap/01500_rec/train_normal_4_1/trimmed.gif" width="300"/>
+<br>
 
 ## How to run MTRNN + Attention
 ### 0. Introduction
@@ -109,11 +117,31 @@ You can use your own model after training, too.
   The sample trained models are already put in the result folder, which is used in our evaluation.
   * result/0716-1843_cf30_cs7_cft5_cst32/snap/20000.tar
     
-You can use your own model after training, too.
+  You can use your own model after training, too.
     
   ```$ cd rnn```
   
   ```$ python do_rnn.py test```
 
 ### 3. Sample motion generation (prediction) results
-  The sample result is put in "result/"
+  The sample result is put in "result/" directry.
+  predicted motor angle, force and tactile is output with png and csv.
+  * result/MMDD-TIME-cfX-csX-cftX-cstX/snap/XXXXX_seq
+
+  The bellow images are predicted motor angle, force and tactile results of test data (test_blue_4_1).
+  In the images, 
+  * dotted lines = offline test data (ground truth)
+  * solid lines = predicted result by the learning model
+
+  motor angle
+  
+  <img src="https://github.com/namikosaito/CookingScrambledEgg/blob/main/result/0716-1843_cf30_cs7_cft5_cst32/snap/20000_seq/test_angle_test_blue_4_1.png"  width="500"/>  
+  
+  force
+  
+  <img src="https://github.com/namikosaito/CookingScrambledEgg/blob/main/result/0716-1843_cf30_cs7_cft5_cst32/snap/20000_seq/test_force_test_blue_4_1.png" width="500"/>    
+
+  tactile
+  
+  <img src="https://github.com/namikosaito/CookingScrambledEgg/blob/main/result/0716-1843_cf30_cs7_cft5_cst32/snap/20000_seq/test_tactile_test_blue_4_1.png" width="500"/>
+  
