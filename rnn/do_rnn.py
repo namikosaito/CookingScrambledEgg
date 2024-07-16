@@ -9,12 +9,12 @@ from model.mtrnn_attention import RNN as rnn
 from src.rnn_learn import train
 from src.rnn_test  import test
 
-DATASET_PATH = "../dataset/"
+DATASET_PATH = "../pickle_dataset/"
 TRAIN_PATH = "rnn_train.pickle"
 TEST_PATH = "rnn_test.pickle"
 RESULT_LOG = "../result/"
 
-TAR_PATH = "../result/0715-1750_cf30_cs7_cft5_cst32/snap/20000.tar"
+TAR_PATH = "../result/0716-1843_cf30_cs7_cft5_cst32/snap/20000.tar"
 
 now = datetime.datetime.now()
 current_time = now.strftime("%m%d-%H%M")

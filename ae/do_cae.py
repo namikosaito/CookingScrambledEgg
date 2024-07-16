@@ -21,7 +21,7 @@ RESULT_LOG = "../result/"
 SENSOR_TXT = "sensor_combine_2_5Hz.txt"
 
 #### comment out either of them ####
-Learning_Target = "trimmed"  #"whole"
+Learning_Target = "whole"  #"whole"
 
 ### when we use trimmed image
 if Learning_Target == "trimmed":
@@ -39,6 +39,7 @@ elif Learning_Target == "whole":
 
 ### if you select own trained model
 # RESUME_PATH = "../result/XXXX/snap/XXXXX.tar" 
+# RESUME_PATH = "../result/0716-1841-trimmed/snap/00010.tar"
 
 args = sys.argv
 mode = args[1]
@@ -60,7 +61,6 @@ for dir in glob.glob(os.path.join(DATASET_PATH, "*")):
         print (os.path.join(dir, IMAGELIST_NAME))
 
 if mode == "train":
-    log = log_name
     resume = ""
     if resume:
         log = resume.rstrip(".tar")
@@ -72,7 +72,7 @@ if mode == "train":
                  "n_workers": 6,
                  "print_iter": 5,
                  "snap_iter": 50,
-                 "outdir": log,
+                 "outdir": log_name,
                  "train": train_path,
                  "test": test_path,
                  "resume": resume}
@@ -88,12 +88,12 @@ elif mode == "test":
     elif Learning_Target == "whole":
         shutil.copyfile(os.path.join(resume.rstrip(resume.split("/")[-1]), "../code/model/cae_whole.py"), "./model/test_cae.py")
     from model.test_cae import CAE as ae
-    param_dir = '/'.join(map(str, resume.split("/")[:-2]))
-    with open(os.path.join(param_dir, "code/nn_params.pickle"), "rb") as f:
-        nn_params = pickle.load(f)
-    nn_params["resume"] = resume
-    nn_params["batch"] = 13
-    nn_params["gpu"] = 0
+
+    nn_params = {"gpu": 0,
+                 "batch": 1, 
+                 "size": 128,   # image size
+                 "dsize": 5,    # image augumentation shift picxel size
+                 "resume": resume}
 
     files = glob.glob(os.path.join(resume.replace(".tar", "_mid"), "*.dat"))  
 

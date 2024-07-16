@@ -16,6 +16,9 @@ Generic computer hardware is sufficient and no non-standard hardware is necessar
 ## Intallation
 Use the virtual environment (venv), "cooking_env"
 
+``` source cooking_env/bin/activate```
+
+FYI
 * python 3.8.10
 * pip 24.1.2
 * numpy 2.0.0
@@ -81,7 +84,7 @@ You can use your own model after training, too.
 
 ### 2. Test MTRNN + Attention model
   The sample trained models are already put in the result folder, which is used in our evaluation.
-  * result/0715-1750_cf30_cs7_cft5_cst32/snap/20000.tar
+  * result/0716-1843_cf30_cs7_cft5_cst32/snap/20000.tar
     
 You can use your own model after training, too.
     

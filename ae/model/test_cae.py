@@ -7,7 +7,7 @@ import torch.nn.functional as F
 mid_size=14 
 
 class CAE(nn.Module):
-    def __init__(self, ch=3, seed=1, mid=30):
+    def __init__(self, ch=3, seed=1, mid=20):
         super(CAE, self).__init__()
         self.encoder1 = nn.Sequential(
             nn.Conv2d(ch,32,6,stride=2,padding=1),
