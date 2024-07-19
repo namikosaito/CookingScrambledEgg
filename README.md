@@ -31,6 +31,8 @@ FYI
 * matplotlib 3.7.5
 * pytorch 2.3.1 (check and follow installattion here: [pytorch link](https://pytorch.org/get-started/locally/))
 
+Does not take time for the instalation.
+
 ## Dataset
   In this github repository, we put 
   * "dataset/"
