@@ -19,17 +19,24 @@ Confirmed with the PCs with spec below
 Generic computer hardware is sufficient and no non-standard hardware is necessary to run the project.
 
 ## Intallation
-Use the virtual environment (venv), "cooking_env"
+
+install required dependencies
+``` $ pip install -r requirements.txt```
+
+
+Requirement 
+* python >= 3.8
+* numpy >= 2.0
+* opencv-python >= 4.10
+* matplotlib >= 3.7
+* pytorch >= 2.3.1 (check and follow installattion here: [pytorch link](https://pytorch.org/get-started/locally/))
+
+
+FYI
+You can use the virtual environment (venv), "cooking_env"
 
 ``` $ source cooking_env/bin/activate```
 
-FYI
-* python 3.8.10
-* pip 24.1.2
-* numpy 2.0.0
-* opencv-python 4.10.0.84
-* matplotlib 3.7.5
-* pytorch 2.3.1 (check and follow installattion here: [pytorch link](https://pytorch.org/get-started/locally/))
 
 Does not take time for the instalation.
 
