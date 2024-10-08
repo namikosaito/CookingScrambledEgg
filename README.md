@@ -24,7 +24,7 @@ install required dependencies
 
 ``` $ pip install -r requirements.txt```
 
-
+FYI
 Requirement 
 * python >= 3.8
 * numpy >= 2.0
