@@ -96,6 +96,8 @@ def test(params, rnn):
             figs.append(fig.add_subplot(7,1,i+1))
         for seq, linestyle in zip(data, linestyles):
             for j in range(seq.shape[-1]):
+                for k in range(len(seq[:,j])-9):
+                    seq[k, j] = sum(seq[k+l, j] for l in range(8)) / 8 
                 val = seq[:,j]
                 figs[j].plot(val, linestyle=linestyle, color=colors[j])
                 figs[j].grid(True)
